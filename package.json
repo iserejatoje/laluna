@@ -1,0 +1,33 @@
+{
+  "name": "laluna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iserejatoje/laluna.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iserejatoje/laluna/issues"
+  },
+  "homepage": "https://github.com/iserejatoje/laluna#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-changed": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-newer": "^1.4.0",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "^4.1.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify-es": "^2.0.0",
+    "jquery": "^3.5.1",
+    "normalize.css": "^8.0.1"
+  }
+}

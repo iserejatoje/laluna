@@ -1,0 +1,100 @@
+@import "variables";
+
+@font-face {
+  font-family: 'Angelface';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('../fonts/angelface.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+  url('../fonts/open-sans-v18-latin_cyrillic-300.woff2') format('woff2'),
+  url('../fonts/open-sans-v18-latin_cyrillic-300.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('../fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'),
+  url('../fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+  url('../fonts/open-sans-v18-latin_cyrillic-600.woff2') format('woff2'),
+  url('../fonts/open-sans-v18-latin_cyrillic-600.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+  url('../fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'),
+  url('../fonts/open-sans-v18-latin_cyrillic-700.woff') format('woff');
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: $dark;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.logo {
+  fill: $brown;
+}
+
+.container {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#fullpage {
+  .section {
+    color: $white;
+  }
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section {
+  &.home {
+    .i {
+      display: inline-block;
+      svg {
+        display: block;
+        fill: $brown;
+      }
+    }
+  }
+}
+
+#app {
+  border: 1px solid $brown;
+  height: 100%;
+}
