@@ -15,6 +15,7 @@
   src: local(''),
   url('../fonts/open-sans-v18-latin_cyrillic-300.woff2') format('woff2'),
   url('../fonts/open-sans-v18-latin_cyrillic-300.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +25,7 @@
   src: local(''),
   url('../fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'),
   url('../fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -33,6 +35,7 @@
   src: local(''),
   url('../fonts/open-sans-v18-latin_cyrillic-600.woff2') format('woff2'),
   url('../fonts/open-sans-v18-latin_cyrillic-600.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
@@ -42,11 +45,12 @@
   src: local(''),
   url('../fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'),
   url('../fonts/open-sans-v18-latin_cyrillic-700.woff') format('woff');
+  font-display: swap;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: $dark;
+  background: $dark url(../images/noise.png) repeat;
   padding: 15px;
   box-sizing: border-box;
 }
@@ -219,10 +223,8 @@ ul {
   padding: 0 15px;
 }
 
-#fullpage {
-  .section {
-    color: $white;
-  }
+.section {
+  color: $white;
 }
 
 .logo-link {
@@ -264,6 +266,7 @@ section {
     .i {
       display: inline-block;
       svg {
+
         display: block;
         fill: $brown;
       }
@@ -271,7 +274,117 @@ section {
   }
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  svg {
+    display: block;
+    fill: $brown;
+  }
+
+  &:not(.active) {
+    span {
+      opacity: 0;
+    }
+  }
+  .active {
+    span {
+      opacity: 1;
+    }
+  }
+
+  .moon-icon {
+    width: 16px;
+    margin-right: 20px;
+    display: inline-block;
+  }
+
+  a {
+    color: $brown;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-flex;
+    margin: 20px 0;
+
+    .moon-icon {
+      position: relative;
+    }
+
+    &:nth-child(2) {
+      .moon-icon {
+        &:before {
+          height: 25px;
+          background: $white;
+          bottom: 24px;
+          left: 8px;
+        }
+      }
+    }
+
+    .moon-icon {
+      &:after,
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        opacity: .15;
+        width: 1px;
+      }
+    }
+
+    &:nth-child(1) {
+      .moon-icon {
+        &:before {
+          height: 15px;
+          background: $white;
+          bottom: 23px;
+          left: 8px;
+        }
+      }
+    }
+    &:last-child {
+      .moon-icon {
+        &:before {
+          height: 15px;
+          background: $white;
+          top: 23px;
+          left: 8px;
+        }
+      }
+    }
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      .moon-icon {
+        &:after {
+          height: 25px;
+          background: $white;
+          top: 24px;
+          left: 8px;
+        }
+      }
+    }
+
+    span {
+      transition: opacity 300ms linear;
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 #app {
-  border: 1px solid $brown;
-  height: 100%;
+  //border: 1px solid $brown;
+  //height: 100%;
 }
