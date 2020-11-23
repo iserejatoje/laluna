@@ -71,6 +71,82 @@ html {
   letter-spacing: 0.2px;
   font-size: 17px;
   margin-top: 38px;
+
+  .button {
+    margin-top: 36px;
+  }
+}
+
+.button {
+  position: relative;
+  background: transparent;
+  max-width: 295px;
+  width: 100%;
+  cursor: pointer;
+  height: 66px;
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 17px;
+  text-transform: uppercase;
+  border: 1px solid transparentize($white, .65);
+
+  &:hover {
+    border-top: 1px solid $brown;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: $brown;
+      width: 1px;
+      height: 46px;
+      right: -1px;
+      top: -1px;
+    }
+  }
+
+  span {
+    margin-left: 42px;
+    &:before {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border: 1px solid $white;
+      transform: rotate(45deg);
+      content: '';
+      display: block;
+      top: 25px;
+      margin-left: -6px;
+    }
+  }
+
+  svg {
+    display: block;
+    fill: $white;
+  }
+
+}
+
+.circle {
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 325px;
+  border: 1px solid transparentize($white, .35);
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 85px);
+  top: 555px;
+  pointer-events: none;
+  user-select: none;
+
+  svg {
+    display: block;
+    fill: $white;
+  }
 }
 
 ul {
