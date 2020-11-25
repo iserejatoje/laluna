@@ -51,13 +51,29 @@
 body {
   font-family: 'Open Sans', sans-serif;
   background: $dark url(../images/noise.png) repeat;
-  padding: 15px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body,
 html {
   height: 100%;
+}
+
+@mixin respond($min: -1, $max: -1, $media: "all") {
+  $query: "only " + $media;
+
+  @if $min != -1 and $max != -1 {
+    $query: "only " + $media + " and (min-width: " + $min + ") and (max-width: " + ($max - 1) + ")";
+  } @else if $min == -1 and $max != -1 {
+    $query: "only " + $media + " and (max-width: " + ($max - 1) + ")";
+  } @else if $min != -1 and $max == -1 {
+    $query: "only " + $media + " and (min-width: " + $min + ")";
+  }
+
+  @media #{$query} {
+    @content;
+  };
 }
 
 .logo-link {
@@ -93,7 +109,7 @@ html {
   align-items: center;
   justify-content: center;
   color: $white;
-  font-size: 17px;
+  font-size: 15px;
   text-transform: uppercase;
   border: 1px solid transparentize($white, .65);
 
@@ -148,11 +164,24 @@ html {
 }
 
 .circle {
-  width: 325px;
+
+  @include respond(1698px) {
+    width: 325px;
+    height: 325px;
+  }
+
+  @include respond(1708px, 1798px) {
+    width: 225px;
+    height: 225px;
+  }
+
+  @include respond(0, 1708px) {
+    display: none;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 325px;
   border: 1px solid transparentize($white, .35);
   border-radius: 50%;
   position: absolute;
@@ -218,9 +247,20 @@ ul {
 }
 
 .container {
-  max-width: 1270px;
   margin: 0 auto;
   padding: 0 15px;
+
+  @include respond(1698px) {
+    max-width: 1270px;
+  }
+
+  @include respond(1617px, 1698px) {
+    max-width: 1140px;
+  }
+
+  @include respond(0, 1617px) {
+    max-width: 940px;
+  }
 }
 
 .section {
@@ -241,6 +281,8 @@ header {
     display: flex;
     width: 100%;
     align-items: center;
+    position: relative;
+    z-index: 10;
   }
 }
 
@@ -261,8 +303,34 @@ header {
   }
 }
 
+.moon-girl {
+  position: absolute;
+  display: inline-block;
+  background: #3c3c3c url(../images/noise.png) repeat;
+  right: -36px;
+  top: 0;
+  overflow: hidden;
+
+  @include respond(0, 1698px) {
+    width: 758px;
+  }
+  @include respond(0, 1617px) {
+    display: none;
+  }
+
+  img {
+    display: block;
+    transform: translateX(-17px);
+    max-width: 100%;
+  }
+}
+
 section {
+  padding: 15px;
+
   &.home {
+
+    background: url('../images/stars_1.png') no-repeat left top;
     .i {
       display: inline-block;
       svg {
