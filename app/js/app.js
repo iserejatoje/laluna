@@ -22,7 +22,7 @@ function init() {
         if ($(window).scrollTop() > $('#vacancy').offset().top - 200 && $(window).scrollTop() < $('#feedback').offset().top - 200) {
             $('[href="#vacancy"]').addClass('active').siblings().removeClass('active');
         }
-        if ($(window).scrollTop() > $('#feedback').offset().top - 190) {
+        if ($(window).scrollTop() > $('#feedback').offset().top - 280) {
             $('[href="#feedback"]').addClass('active').siblings().removeClass('active');
         }
     }

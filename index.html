@@ -213,6 +213,19 @@
         <div class="container">
             <div class="title">Калькулятор доходов</div>
         </div>
+        <div class="container-wild">
+            <div class="list">
+                <div class="item">
+                    <img src="app/images/1%20m.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="app/images/1%20year.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="app/images/3%20%20year.png" alt="">
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="section vacancy" id="vacancy">
@@ -263,25 +276,25 @@
                 <div class="column form">
                     <form action="" method="post" autocomplete="off">
                         <div class="input">
-                            <input class="firstname" id="firstname" type="text">
+                            <input class="firstname" required id="firstname" type="text">
                             <label for="firstname">Ваше имя</label>
                         </div>
                         <div class="input">
-                            <input class="number" id="number" type="tel">
+                            <input class="number" required id="number" type="tel">
                             <label for="number">Телефон</label>
                         </div>
                         <div class="input last">
-                            <input class="city" id="city" type="text">
+                            <input class="city" required id="city" type="text">
                             <label for="city">Город</label>
                         </div>
 
                         <label class="checkbox">
-                            <input type="checkbox" checked>
+                            <input type="checkbox" required checked>
                             <span></span>
                             Я согласна с условиями обработки <a href="">персональных данных</a>
                         </label>
 
-                        <button class="button go">Оставить заявку <span>
+                        <button class="button">Оставить заявку <span>
                                 <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
                             </span>
                         </button>
