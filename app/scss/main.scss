@@ -576,6 +576,7 @@ form {
 .columns {
   @include respond(0, 1225px) {
     flex-direction: column;
+    align-items: center;
   }
 
   .column.form {
@@ -584,16 +585,31 @@ form {
       max-width: 490px;
       width: 100%;
     }
+    @include respond(1360px, 1617px) {
+      max-width: 320px;
+    }
+    @include respond(0, 1360px) {
+      max-width: 490px;
+    }
     box-sizing: border-box;
     margin-top: 36px;
     position: relative;
     &:before {
+
+      @include respond(1617px) {
+        left: -80px;
+        top: -80px;
+        bottom: -80px;
+        right: -80px;
+      }
+      @include respond(0, 1617px) {
+        left: -30px;
+        top: -30px;
+        bottom: -30px;
+        right: -30px;
+      }
       content: '';
       position: absolute;
-      left: -80px;
-      top: -80px;
-      bottom: -80px;
-      right: -80px;
       background: rgba(255, 255, 255, .01);
     }
   }
@@ -671,6 +687,12 @@ section {
 
     @include respond(0, 700px) {
       padding-bottom: 55px;
+    }
+
+    @include respond(0, 1617px) {
+      .title {
+        font-size: 70px;
+      }
     }
   }
 
