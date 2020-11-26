@@ -9,43 +9,47 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local(''),
-  url('../fonts/open-sans-v18-latin_cyrillic-300.woff2') format('woff2'),
-  url('../fonts/open-sans-v18-latin_cyrillic-300.woff') format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-  url('../fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'),
-  url('../fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local(''),
-  url('../fonts/open-sans-v18-latin_cyrillic-600.woff2') format('woff2'),
-  url('../fonts/open-sans-v18-latin_cyrillic-600.woff') format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Open Sans';
+  font-family: 'Playfair';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-  url('../fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'),
-  url('../fonts/open-sans-v18-latin_cyrillic-700.woff') format('woff');
-  font-display: swap;
+  url('../fonts/PlayfairDisplayBold.woff') format('woff');
+}
+
+.pl52 {
+  padding-left: 52px;
+  margin-top: 36px;
+}
+
+.vacancy-item + .styled {
+  max-width: 672px;
+  line-height: 1.7;
+
+  li {
+    margin-bottom: 15px;
+
+    &:before {
+      top: 12px;
+    }
+    &:after {
+      top: 7px;
+    }
+  }
+}
+
+.vacancy-item {
+  font-family: 'Playfair', sans-serif;
+  font-size: 40px;
+  color: $brown;
+  letter-spacing: .66px;
+  margin-bottom: 29px;
+  margin-top: 10px;
+
+  svg {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+  }
 }
 
 body {
@@ -112,6 +116,7 @@ html {
   font-size: 15px;
   text-transform: uppercase;
   border: 1px solid transparentize($white, .65);
+  letter-spacing: 1px;
 
   &:hover {
     border-top: 1px solid $brown;
@@ -129,6 +134,7 @@ html {
 
   span {
     margin-left: 42px;
+
     &:before {
       position: absolute;
       width: 13px;
@@ -214,8 +220,8 @@ ul {
       &:after {
         content: '';
         display: block;
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border: 1px solid $brown;
         transform: rotate(45deg);
         left: 0;
@@ -246,6 +252,49 @@ ul {
   }
 }
 
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 180px;
+  grid-row-gap: 78px;
+  margin-top: 70px;
+  padding-bottom: 70px;
+
+  .heading {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    line-height: 1.7;
+  }
+  .text {
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 16px;
+    line-height: 1.9;
+    letter-spacing: .2px;
+
+    span {
+      font-weight: 400;
+    }
+  }
+  .icon {
+    max-width: 210px;
+    width: 100%;
+    margin-bottom: 30px;
+    height: 210px;
+    border: 1px solid transparentize($white, .2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    fill: $brown;
+    max-width: 74px;
+  }
+}
+
 .container {
   margin: 0 auto;
   padding: 0 15px;
@@ -258,7 +307,7 @@ ul {
     max-width: 1140px;
   }
 
-  @include respond(0, 1617px) {
+  @include respond(1360px, 1617px) {
     max-width: 940px;
   }
 }
@@ -271,13 +320,26 @@ ul {
   display: inline-block;
 }
 
-header {
+footer {
+  span {
+    font-size: 15px;
+    color: transparentize($white, .2);
+  }
+}
+
+header,
+footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .contacts {
+
+    @include respond(1057px) {
+      transform: translateX(18px);
+    }
     max-width: 232px;
+    letter-spacing: .8px;
     display: flex;
     width: 100%;
     align-items: center;
@@ -306,7 +368,7 @@ header {
 .moon-girl {
   position: absolute;
   display: inline-block;
-  background: #3c3c3c url(../images/noise.png) repeat;
+  background: #3a3a3a url(../images/noise.png) repeat;
   right: -36px;
   top: 0;
   overflow: hidden;
@@ -325,11 +387,36 @@ header {
   }
 }
 
+.vacancy-items {
+  display: flex;
+}
+
+.vacancy-girl {
+  transform: translate3d(87px, -32px, 0);
+}
+
 section {
   padding: 15px;
 
-  &.home {
+  &.services {
+    min-height: 904px;
+    background: url('../images/stars_1.png') no-repeat left top;
+  }
 
+  &.vacancy {
+    min-height: 904px;
+    padding-top: 60px;
+    background: url('../images/stars_1.png') no-repeat left top;
+  }
+
+  &.money {
+    min-height: 680px;
+    padding-top: 50px;
+    background: url('../images/stars_1.png') no-repeat left top;
+  }
+
+  &.home {
+    min-height: 904px;
     background: url('../images/stars_1.png') no-repeat left top;
     .i {
       display: inline-block;
@@ -340,6 +427,58 @@ section {
       }
     }
   }
+
+  .title {
+    font-family: 'Angelface', sans-serif;
+    letter-spacing: 1px;
+    font-size: 100px;
+  }
+
+  &.about {
+    background: url('../images/about.png') no-repeat left top;
+    min-height: 806px;
+    padding-top: 107px;
+
+    .about-content {
+      flex: 1;
+      max-width: 562px;
+      width: 100%;
+      margin-left: auto;
+
+      .button {
+        margin-top: 35px;
+      }
+
+      .title {
+        margin-top: 45px;
+      }
+      .heading {
+        font-size: 17px;
+        color: $brown;
+        font-family: 'Open Sans', sans-serif;
+        margin-top: 15px;
+        line-height: 1.7;
+      }
+      .text {
+        font-size: 16px;
+        color: $white;
+        font-family: 'Open Sans', sans-serif;
+        margin-top: 20px;
+        max-width: 545px;
+        font-weight: 300;
+        letter-spacing: .15px;
+        line-height: 1.9;
+      }
+    }
+
+    .about-wrapper {
+      display: flex;
+      img {
+        transform: translateX(-19px);
+      }
+    }
+  }
+
 }
 
 nav {
@@ -351,6 +490,18 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  @include respond(0, 1360px) {
+    display: none;
+  }
+
+  @include respond(1756px) {
+    left: 65px;
+  }
+
+  @include respond(0, 1756px) {
+    left: 30px;
+  }
 
   svg {
     display: block;
@@ -429,7 +580,8 @@ nav {
     }
     &:nth-child(2),
     &:nth-child(3),
-    &:nth-child(4) {
+    &:nth-child(4),
+    &:nth-child(5) {
       .moon-icon {
         &:after {
           height: 25px;
