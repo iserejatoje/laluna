@@ -482,7 +482,7 @@ form {
     opacity: 0;
   }
   input:checked + span {
-    background: $brown url(/app/images/sprite.svg#check) no-repeat center / 21px;
+    background: $brown url(../images/sprite.svg#check) no-repeat center / 21px;
   }
   span {
     top: -8px;
