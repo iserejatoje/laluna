@@ -226,7 +226,7 @@ ul {
         transform: rotate(45deg);
         left: 0;
         position: absolute;
-        top: 3px;
+        top: 4px;
       }
       &:before {
         content: '';
@@ -395,6 +395,116 @@ footer {
   transform: translate3d(87px, -32px, 0);
 }
 
+.input.last {
+  margin-bottom: 60px;
+}
+
+form {
+  .button {
+    margin-top: 65px;
+  }
+  max-width: 490px;
+  box-sizing: border-box;
+  width: 100%;
+  .input {
+    position: relative;
+    &:not(.last) {
+      margin-bottom: 50px;
+    }
+
+    &.active  {
+      label {
+        top: -10px;
+        font-size: 12px;
+      }
+    }
+
+    label {
+      pointer-events: none;
+      position: absolute;
+      font-size: 16px;
+      top: 17px;
+      text-transform: uppercase;
+      transition: top 170ms linear, font-size 170ms linear;
+      color: $white;
+    }
+  }
+  input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $white;
+    border-bottom: 1px solid transparentize($white, .25);
+    &:focus {
+      border-bottom: 1px solid $brown;
+    }
+
+  }
+  /*background: #161619;*/
+}
+
+.columns {
+  .column.form {
+    margin-left: auto;
+    max-width: 490px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 36px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -80px;
+      top: -80px;
+      bottom: -80px;
+      right: -80px;
+      background: rgba(255, 255, 255, .01);
+    }
+  }
+
+  display: flex;
+}
+
+.checkbox {
+  cursor: pointer;
+  position: relative;
+  letter-spacing: .2px;
+  font-size: 14px;
+  padding-left: 46px;
+  a {
+    color: $brown;
+  }
+  input {
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+  }
+  input:checked + span {
+    background: $brown url(/app/images/sprite.svg#check) no-repeat center / 21px;
+  }
+  span {
+    top: -8px;
+    left: 0;
+    position: absolute;
+    margin-right: 15px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $brown;
+  }
+}
+
+.i {
+  display: inline-block;
+  svg {
+
+    display: block;
+    fill: $brown;
+  }
+}
+
 section {
   padding: 15px;
 
@@ -404,7 +514,7 @@ section {
   }
 
   &.vacancy {
-    min-height: 904px;
+    min-height: 840px;
     padding-top: 60px;
     background: url('../images/stars_1.png') no-repeat left top;
   }
@@ -415,17 +525,15 @@ section {
     background: url('../images/stars_1.png') no-repeat left top;
   }
 
+  &.feedback {
+    min-height: 812px;
+    padding-top: 15px;
+    background: url('../images/about.png') no-repeat left top;
+  }
+
   &.home {
     min-height: 904px;
     background: url('../images/stars_1.png') no-repeat left top;
-    .i {
-      display: inline-block;
-      svg {
-
-        display: block;
-        fill: $brown;
-      }
-    }
   }
 
   .title {
@@ -486,6 +594,7 @@ nav {
   top: 0;
   bottom: 0;
   left: 65px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -605,6 +714,17 @@ nav {
 }
 
 #app {
-  //border: 1px solid $brown;
-  //height: 100%;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    border: 1px solid $brown;
+    left: 15px;
+    right: 15px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 100;
+    top: 15px;
+    bottom: 15px;
+  }
 }

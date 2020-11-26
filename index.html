@@ -108,7 +108,7 @@
             <div class="how-block">
                 Тогда скорее жми на кнопку и мы расскажем, как получить желаемое уже в первый месяц!
 
-                <button class="button">
+                <button class="button go">
                     Оставить заявку
 
                     <span>
@@ -144,7 +144,7 @@
                         Зарубежные пользователи готовы платить за онлайн общение и флирт, что позволит вам иметь высокий доход. Что для этого нужно? Всего лишь немного трудолюбия, дисциплины, обаяния и доброжелательности. Вот и вся магия. Остальному мы научим.
                     </div>
 
-                    <button class="button">Оставить заявку <span>
+                    <button class="button go">Оставить заявку <span>
                         <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
                     </span></button>
                 </div>
@@ -228,7 +228,7 @@
                     </ul>
 
                     <div class="pl52">
-                        <button class="button">Оставить заявку <span>
+                        <button class="button go">Оставить заявку <span>
                     <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
                 </span>
                         </button>
@@ -248,15 +248,39 @@
                 <div class="column">
                     <div class="title">Свяжитесь с нами</div>
                 </div>
-                <div class="column">
-                    <form action="" method="post"></form>
+                <div class="column form">
+                    <form action="" method="post" autocomplete="off">
+                        <div class="input">
+                            <input class="firstname" id="firstname" type="text">
+                            <label for="firstname">Ваше имя</label>
+                        </div>
+                        <div class="input">
+                            <input class="number" id="number" type="tel">
+                            <label for="number">Телефон</label>
+                        </div>
+                        <div class="input last">
+                            <input class="city" id="city" type="text">
+                            <label for="city">Город</label>
+                        </div>
+
+                        <label class="checkbox">
+                            <input type="checkbox" checked>
+                            <span></span>
+                            Я согласна с условиями обработки <a href="">персональных данных</a>
+                        </label>
+
+                        <button class="button go">Оставить заявку <span>
+                                <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
+                            </span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
 
     </section>
 
-    <div class="container">
+    <div class="container" style="padding-bottom: 20px;">
         <footer>
             <a href="/laluna/" class="logo-link" aria-label="Логотип"><svg width="220" height="82"><use xlink:href="app/images/sprite.svg#logo"></use></svg></a>
 
@@ -281,6 +305,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="app/js/jquery.mask.min.js"></script>
 <script src="app/js/app.min.js"></script>
 
 </body>
