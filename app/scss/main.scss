@@ -88,13 +88,16 @@ html {
 }
 
 .how-block {
-  margin-left: 52px;
   color: $brown;
   line-height: 1.765;
   max-width: 420px;
   letter-spacing: 0.2px;
   font-size: 17px;
   margin-top: 38px;
+
+  @include respond(600px) {
+    margin-left: 52px;
+  }
 
   .button {
     margin-top: 36px;
@@ -243,8 +246,94 @@ ul {
   }
 }
 
+ul.contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 28px;
+
+  li {
+    font-size: 20px;
+    padding-left: 126px;
+    position: relative;
+
+    &:after {
+      width: 50px;
+      height: 1px;
+      content: '';
+      left: 60px;
+      position: absolute;
+      background: $white;
+      opacity: .22;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      width: 76px;
+      height: 76px;
+      transform: scale(-1, 1) translateY(-13px);
+      left: 0;
+      display: inline-block;
+      border: 1px solid transparentize($white, .2);
+      border-radius: 50%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 76px;
+    }
+  }
+
+  .email {
+    &:after {
+      top: 11px;
+    }
+    &:before {
+      background: url(../images/sprite.svg#email) no-repeat center / 33px;
+      transform: translateY(-28px);
+    }
+    a {
+      font-weight: 300;
+      color: $white;
+      text-decoration: none;
+      border-bottom: 1px dotted $brown;
+    }
+  }
+  .number {
+    &:after {
+      top: 26px;
+    }
+    &:before {
+      background: url(../images/sprite.svg#phone) no-repeat center / 33px;
+      transform: scale(-1, 1) translateY(-13px);
+
+    }
+    font-size: 40px;
+    font-family: 'Playfair', sans-serif;
+    a {
+      font-weight: 300;
+      text-decoration: none;
+      color: $brown;
+    }
+  }
+  .address {
+    &:after {
+      top: 13px;
+    }
+    &:before {
+      background: url(../images/sprite.svg#pin) no-repeat center / 33px;
+      transform: scale(-1, 1) translateY(-25px);
+    }
+    font-weight: 300;
+  }
+}
+
 .logo-large {
-  margin-top: 50px;
+  @include respond(600px) {
+    margin-top: 50px;
+  }
+  @include respond(0, 600px) {
+    margin-top: 25px;
+  }
   margin-bottom: 24px;
   svg {
     max-width: 100%;
@@ -254,10 +343,22 @@ ul {
 }
 
 .service-list {
+  @include respond(1300px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 180px;
+    grid-row-gap: 78px;
+  }
+  @include respond(700px, 1300px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 60px;
+    grid-row-gap: 78px;
+  }
+  @include respond(0, 700px) {
+    .item {
+      margin-bottom: 30px;
+    }
+  }
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 180px;
-  grid-row-gap: 78px;
   margin-top: 70px;
   padding-bottom: 70px;
 
@@ -279,15 +380,22 @@ ul {
     }
   }
   .icon {
-    max-width: 210px;
     width: 100%;
     margin-bottom: 30px;
-    height: 210px;
     border: 1px solid transparentize($white, .2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include respond(1617px) {
+      max-width: 210px;
+      height: 210px;
+    }
+    @include respond(0, 1617px) {
+      max-width: 170px;
+      height: 170px;
+    }
   }
 
   svg {
@@ -298,7 +406,7 @@ ul {
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 25px;
 
   @include respond(1698px) {
     max-width: 1270px;
@@ -322,6 +430,11 @@ ul {
 }
 
 footer {
+  .contacts {
+    @include respond(0, 770px) {
+      margin-top: 20px;
+    }
+  }
   span {
     font-size: 15px;
     color: transparentize($white, .2);
@@ -334,9 +447,13 @@ footer {
   justify-content: space-between;
   align-items: center;
 
+  @include respond(0, 770px) {
+    flex-direction: column;
+  }
+
   .contacts {
 
-    @include respond(1057px) {
+    @include respond(1360px) {
       transform: translateX(18px);
     }
     max-width: 232px;
@@ -393,7 +510,12 @@ footer {
 }
 
 .vacancy-girl {
-  transform: translate3d(87px, -32px, 0);
+  @include respond(0, 1170px) {
+    display: none;
+  }
+  @include respond(1500px) {
+    transform: translate3d(87px, -32px, 0);
+  }
 }
 
 .input.last {
@@ -404,7 +526,12 @@ form {
   .button {
     margin-top: 65px;
   }
-  max-width: 490px;
+  @include respond(1225px) {
+    max-width: 490px;
+  }
+  @include respond(0, 1225px) {
+    margin-top: 30px;
+  }
   box-sizing: border-box;
   width: 100%;
   .input {
@@ -447,11 +574,17 @@ form {
 }
 
 .columns {
+  @include respond(0, 1225px) {
+    flex-direction: column;
+  }
+
   .column.form {
-    margin-left: auto;
-    max-width: 490px;
+    @include respond(1225px) {
+      margin-left: auto;
+      max-width: 490px;
+      width: 100%;
+    }
     box-sizing: border-box;
-    width: 100%;
     margin-top: 36px;
     position: relative;
     &:before {
@@ -509,6 +642,10 @@ form {
 section {
   padding: 15px;
 
+  @include respond(0, 1300px) {
+    min-height: auto !important;
+  }
+
   &.services {
     min-height: 904px;
     background: url('../images/stars_1.png') no-repeat left top;
@@ -530,6 +667,10 @@ section {
     min-height: 812px;
     padding-top: 15px;
     background: url('../images/about.png') no-repeat left top;
+
+    @include respond(0, 700px) {
+      padding-bottom: 55px;
+    }
   }
 
   &.home {
@@ -540,19 +681,39 @@ section {
   .title {
     font-family: 'Angelface', sans-serif;
     letter-spacing: 1px;
-    font-size: 100px;
+
+    @include respond(1024px) {
+      font-size: 100px;
+    }
+    @include respond(0, 1024px) {
+      font-size: 48px;
+    }
   }
 
   &.about {
     background: url('../images/about.png') no-repeat left top;
     min-height: 806px;
-    padding-top: 107px;
+
+    @include respond(1300px) {
+      padding-top: 107px;
+    }
+
+    @include respond(0, 1300px) {
+      padding-top: 50px;
+    }
+
 
     .about-content {
       flex: 1;
       max-width: 562px;
       width: 100%;
-      margin-left: auto;
+
+      @include respond(0, 1073px) {
+        margin-bottom: 30px;
+      }
+      @include respond(1073px) {
+        margin-left: auto;
+      }
 
       .button {
         margin-top: 35px;
@@ -582,8 +743,19 @@ section {
 
     .about-wrapper {
       display: flex;
+      align-items: flex-start;
+
+      @include respond(0, 1073px) {
+        flex-direction: column-reverse;
+
+      }
+
       img {
-        transform: translateX(-19px);
+        max-width: 100%;
+
+        @include respond(1073px) {
+          transform: translateX(-19px);
+        }
       }
     }
   }
@@ -727,5 +899,15 @@ nav {
     z-index: 100;
     top: 15px;
     bottom: 15px;
+  }
+}
+
+.footer-container {
+  @include respond(800px) {
+    padding-bottom: 20px;
+    padding-top: 30px;
+  }
+  @include respond(0, 800px) {
+    padding-bottom: 46px
   }
 }
