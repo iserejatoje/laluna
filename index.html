@@ -76,7 +76,7 @@
 </nav>
 
 <div id="app">
-    <section class="section home" id="home">
+    <section class="section home" id="home" data-aos="fade-in">
 
         <div class="container">
             <header>
@@ -159,20 +159,27 @@
 
     </section>
 
-    <section class="section services" id="services" data-aos="fade-down"
-             data-aos-duration="2400">
-        <div class="container">
+    <section class="section services" id="services">
+        <div class="container"
+             data-aos="fade-down"
+             data-aos-offset="10"
+             data-aos-duration="1700"
+        >
             <div class="title">Что мы предлагаем</div>
 
             <div class="service-list">
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="200"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#eye"></use></svg>
                     </div>
                     <div class="heading">Высокая зарплата</div>
                     <div class="text">Выплаты от 50 до 65% каждую неделю. Веб модели студии La Luna зарабатывают <span>от 80 000 ₽ в месяц</span></div>
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="500"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#calendar"></use></svg>
                     </div>
@@ -180,7 +187,9 @@
                     <div class="text">Ты будешь сама распоряжаться своим временем, график составляется <span>индивидуально</span> для каждой модели</div>
 
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="800"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#diamond"></use></svg>
                     </div>
@@ -188,7 +197,9 @@
                     <div class="text">Проводим обучение для освоения всех тонкостей работы</div>
 
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="1100"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#setting"></use></svg>
                     </div>
@@ -196,7 +207,9 @@
                     <div class="text">Оборудование последнего поколения</div>
 
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="1400"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#couch"></use></svg>
                     </div>
@@ -204,7 +217,9 @@
                     <div class="text">Уютные индивидуальные места, лаундж зона, абсолютная приватность, дружелюбный коллектив</div>
 
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-down"
+                     data-aos-delay="1700"
+                     data-aos-duration="1700">
                     <div class="icon">
                         <svg><use xlink:href="app/images/sprite.svg#stars"></use></svg>
                     </div>
@@ -217,18 +232,26 @@
     </section>
 
     <section class="section money" id="money">
-        <div class="container">
+        <div class="container" data-aos="fade-up"
+             data-aos-offset="300"
+             data-aos-duration="2000">
             <div class="title">Калькулятор доходов</div>
         </div>
         <div class="container-wild">
             <div class="list">
-                <div class="item">
+                <div class="item"  data-aos="fade-up"
+                     data-aos-delay="300"
+                     data-aos-duration="2000">
                     <img src="app/images/1%20m.png" alt="">
                 </div>
-                <div class="item">
+                <div class="item"  data-aos="fade-up"
+                     data-aos-delay="600"
+                     data-aos-duration="2000">
                     <img src="app/images/1%20year.png" alt="">
                 </div>
-                <div class="item">
+                <div class="item"  data-aos="fade-up"
+                     data-aos-delay="900"
+                     data-aos-duration="2000">
                     <img src="app/images/3%20%20year.png" alt="">
                 </div>
 
@@ -239,10 +262,12 @@
         </div>
     </section>
 
-    <section class="section vacancy" id="vacancy">
+    <section class="section vacancy" id="vacancy" >
         <div class="container">
             <div class="vacancy-items">
-                <div class="item">
+                <div class="item"  data-aos="fade-right"
+                     data-aos-offset="700"
+                     data-aos-easing="ease-in-sine">
                     <div class="title">Наши вакансии</div>
                     <div class="vacancy-item">Зарплата от 80000 <svg><use xlink:href="app/images/sprite.svg#ruble"></use></svg></div>
 
@@ -262,7 +287,9 @@
                         </button>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" data-aos="fade-left"
+                     data-aos-offset="700"
+                     data-aos-easing="ease-in-sine">
                     <img class="vacancy-girl" src="app/images/vacancy-girl.png" alt="">
                 </div>
             </div>
@@ -273,7 +300,8 @@
 
         <div class="container">
             <div class="columns">
-                <div class="column">
+                <div class="column" data-aos="fade-right"
+                     data-aos-easing="ease-in-sine">
                     <div class="title">Свяжитесь с нами</div>
 
                     <div class="contacts">
@@ -284,7 +312,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="column form">
+                <div class="column form" data-aos="fade-left"
+                     data-aos-easing="ease-in-sine">
                     <form action="" method="post" autocomplete="off">
                         <div class="success">
                             Спасибо за заявку! Мы скоро свяжемся с вами.
@@ -348,7 +377,9 @@
 <script src="app/js/app.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+    AOS.init({
+        once: true
+    });
 </script>
 </body>
 </html>
