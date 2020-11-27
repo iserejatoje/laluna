@@ -17,13 +17,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app/css/normalize.css">
     <link rel="stylesheet" href="app/css/app.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 <body>
 
 <a class="skip-link" href="#app">Перейти к контенту</a>
 
-<nav>
+<nav data-aos="fade-in">
     <a href="#home" >
         <div class="moon-icon">
             <svg width="16" height="16">
@@ -96,11 +97,11 @@
                 </div>
             </header>
 
-            <div class="logo-large">
+            <div class="logo-large z5">
                 <svg width="572" height="150"><use xlink:href="app/images/sprite.svg#logo"></use></svg>
             </div>
 
-            <ul class="styled">
+            <ul class="styled z5">
                 <li>Устала от работы в офисе?</li>
                 <li>Подружка купила новенький мерседес, а ты ездишь на метро?</li>
                 <li>Хочешь <span>Iphone 12 Max Pro</span>, но можешь взять его только в кредит?</li>
@@ -109,7 +110,7 @@
                 <li>Хочешь быть частью <span>крутой команды</span>, без давящего руководства?</li>
             </ul>
 
-            <div class="how-block">
+            <div class="how-block z5">
                 Тогда скорее жми на кнопку и мы расскажем, как получить желаемое уже в первый месяц!
 
                 <button class="button go">
@@ -125,7 +126,7 @@
                 <img src="app/images/home.png" alt="">
             </div>
 
-            <div class="circle">
+            <div class="circle z5">
                 <svg width="37" height="35"><use xlink:href="app/images/sprite.svg#down-arrow"></use></svg>
             </div>
 
@@ -343,6 +344,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="app/js/jquery.mask.min.js"></script>
 <script src="app/js/app.min.js"></script>
-
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>

@@ -546,6 +546,11 @@ footer {
   }
 }
 
+.z5 {
+  z-index: 5;
+  position: relative;
+}
+
 .moon-girl {
   position: absolute;
   display: inline-block;
@@ -558,7 +563,7 @@ footer {
     width: 758px;
   }
   @include respond(1300px, 1617px) {
-    width: 600px;
+    width: 680px;
   }
   @include respond(0, 1300px) {
     display: none;
