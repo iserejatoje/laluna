@@ -33,6 +33,21 @@ let $transition = false;
 $(document).ready(function () {
    init();
 
+   $('form').submit(function() {
+       $('form > *').hide();
+
+       $.ajax({
+           url: '/ajax.php',
+           data: $(this).serialize(),
+           type: 'post',
+           success: function(data) {
+               $('.success').show();
+           }
+       })
+
+       return false;
+   });
+
    $('[type="tel"]').mask('+7 (999) 999-99-99');
 
    $('input').on('focus', function () {

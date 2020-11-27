@@ -7,8 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>La Luna</title>
     <meta name="theme-color" content="#111113">
-    <meta name="description" content="Вебкам и всё такое">
+    <meta name="description" content="Вебкам">
     <meta name="keywords" content="вебкам, модели">
+
+    <link rel="preload" href="app/fonts/angelface.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="app/fonts/PlayfairDisplayBold.woff" as="font" type="font/woff" crossorigin>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app/css/normalize.css">
@@ -224,6 +228,10 @@
                 <div class="item">
                     <img src="app/images/3%20%20year.png" alt="">
                 </div>
+
+                <div class="popup">
+
+                </div>
             </div>
         </div>
     </section>
@@ -246,8 +254,8 @@
 
                     <div class="pl52">
                         <button class="button go">Оставить заявку <span>
-                    <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
-                </span>
+                            <svg width="32" height="33"><use xlink:href="app/images/sprite.svg#arrow_long"></use></svg>
+                        </span>
                         </button>
                     </div>
                 </div>
@@ -275,16 +283,19 @@
                 </div>
                 <div class="column form">
                     <form action="" method="post" autocomplete="off">
+                        <div class="success">
+                            Спасибо за заявку! Мы скоро свяжемся с вами.
+                        </div>
                         <div class="input">
-                            <input class="firstname" required id="firstname" type="text">
+                            <input class="firstname" name="firstname" required id="firstname" type="text">
                             <label for="firstname">Ваше имя</label>
                         </div>
                         <div class="input">
-                            <input class="number" required id="number" type="tel">
+                            <input class="number" name="number" required id="number" type="tel">
                             <label for="number">Телефон</label>
                         </div>
                         <div class="input last">
-                            <input class="city" required id="city" type="text">
+                            <input class="city" name="city" required id="city" type="text">
                             <label for="city">Город</label>
                         </div>
 

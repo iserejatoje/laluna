@@ -220,7 +220,7 @@ html {
 }
 
 .container-wild {
-  max-width: 1500px;
+  max-width: 1435px;
   margin: 0 auto;
   padding: 0 20px;
 
@@ -233,15 +233,30 @@ html {
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   margin-top: 50px;
+  position: relative;
+  justify-content: space-between;
+  .popup {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .element {
+      max-width: 439px;
+    }
+  }
 
   .item {
     text-align: center;
-
+    max-width: 439px;
+    width: 100%;
     img {
       max-width: 100%;
+      display: inline-block;
+      pointer-events: none;
     }
   }
 }
@@ -384,9 +399,14 @@ ul.contacts {
 }
 
 .service-list {
+  @include respond(1617px) {
+    grid-column-gap: 180px;
+  }
+  @include respond(0, 1617px) {
+    grid-column-gap: 80px;
+  }
   @include respond(1300px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 180px;
     grid-row-gap: 78px;
   }
   @include respond(700px, 1300px) {
@@ -564,6 +584,13 @@ footer {
 }
 
 form {
+  .success {
+    display: none;
+    margin-top: 122px;
+    font-family: Angelface,sans-serif;
+    color: #c5a26c;
+    font-size: 56px;
+  }
   .button {
     margin-top: 65px;
   }
