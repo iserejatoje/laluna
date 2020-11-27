@@ -752,14 +752,14 @@ section {
 
   &.vacancy {
     min-height: 840px;
-    padding-top: 60px;
+    padding-top: 100px;
     background: url('../images/stars_1.png') no-repeat left top;
   }
 
   &.money {
 
     @include respond(1367px) {
-      min-height: 904px;
+      min-height: 820px;
     }
     @include respond(0, 1367px) {
       min-height: 730px;
