@@ -752,6 +752,14 @@ section {
   }
 
   &.money {
+
+    @include respond(1367px) {
+      min-height: 904px;
+    }
+    @include respond(0, 1367px) {
+      min-height: 730px;
+    }
+
     min-height: 860px;
     padding-top: 50px;
     background: url('../images/stars_1.png') no-repeat left top;
@@ -759,7 +767,15 @@ section {
 
   &.feedback {
     padding-top: 15px;
-    padding-bottom: 200px;
+
+    @include respond(1367px) {
+      padding-bottom: 200px;
+    }
+
+    @include respond(0, 1367px) {
+      padding-bottom: 50px;
+    }
+
     background: url('../images/about.png') no-repeat left top;
 
     @include respond(0, 700px) {
@@ -774,7 +790,10 @@ section {
   }
 
   &.home {
-    min-height: 904px;
+
+    @include respond(1367px) {
+      min-height: 904px;
+    }
     background: url('../images/stars_1.png') no-repeat left top;
   }
 
@@ -792,7 +811,13 @@ section {
 
   &.about {
     background: url('../images/about.png') no-repeat left top;
-    min-height: 806px;
+    @include respond(1367px) {
+      min-height: 806px;
+    }
+    @include respond(0, 1367px) {
+      min-height: 670px;
+    }
+
 
     @include respond(1300px) {
       padding-top: 107px;
