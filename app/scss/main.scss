@@ -924,6 +924,7 @@ section {
   }
 
   &.services {
+    position: relative;
     min-height: 904px;
     background: url('../images/stars_1.png') repeat left top;
 
@@ -1073,6 +1074,27 @@ section {
     }
   }
 
+}
+
+.square {
+  @include respond(1500px) {
+    max-width: 1150px;
+  }
+  @include respond(1024px, 1500px) {
+    max-width: 800px;
+  }
+  @include respond(0, 1024px) {
+    display: none;
+  }
+  @include respond(0, 1366px) {
+    top: 0;
+  }
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 3px;
+  background: #171717;
+  z-index: -1;
 }
 
 nav {
