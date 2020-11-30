@@ -32,30 +32,37 @@ function init() {
 }
 
 let $transition = false;
+const tilt = $('.js-tilt').tilt({
+    maxTilt: 7
+})
 
 $(document).ready(function () {
-   init();
-    $('.js-tilt').tilt({
-        maxTilt: 5
-    })
+    init();
+
 
     $('.list')
         .on('mouseleave', function() {
+            const tilt = $('.js-tilt').tilt({
+                maxTilt: 7
+            })
+
             if ($(document).width() > 1023) {
                 $('.popup').removeClass('active');
-
                 $('.list .item').eq(0).html($('.secret').html());
             }
         })
         .on('mouseenter', '.item', function() {
+
+        })
+        .on('click', '.item', function() {
+            tilt.tilt.destroy.call(tilt);
+            if ($(document).width() <= 1023)
+                $('.'+$(this).attr('data-popup')).addClass('active').show();
+
             if ($(document).width() > 1023) {
                 $('.' + $(this).attr('data-popup')).addClass('active');
                 $('.list .item').eq(0).html($(this).html());
             }
-        })
-        .on('click', '.item', function() {
-            if ($(document).width() <= 1023)
-                $('.'+$(this).attr('data-popup')).addClass('active').show();
         });
 
     if ($(document).width() > 1023)
