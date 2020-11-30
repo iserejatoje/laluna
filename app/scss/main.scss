@@ -998,10 +998,12 @@ section {
   }
 
   &.about {
-    background: url('../images/about.png') no-repeat left top;
+    background: url('../images/about.png') repeat left top;
     @include respond(1367px) {
+      padding-bottom: 132px;
     }
     @include respond(0, 1367px) {
+      padding-bottom: 32px;
     }
 
 
