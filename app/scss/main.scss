@@ -1089,6 +1089,23 @@ section {
 
 }
 
+@keyframes zoomy {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.zoomy {
+  animation-name: zoomy;
+  animation-duration: 600ms;
+}
+
 .square {
   @include respond(1500px) {
     max-width: 1150px;

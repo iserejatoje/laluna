@@ -39,13 +39,12 @@ const tilt = $('.js-tilt').tilt({
 $(document).ready(function () {
     init();
 
-
     $('.list')
         .on('mouseleave', function() {
             const tilt = $('.js-tilt').tilt({
                 maxTilt: 7
             })
-
+            $('.list .item').removeClass('zoomy');
             if ($(document).width() > 1023) {
                 $('.popup').removeClass('active');
                 $('.list .item').eq(0).html($('.secret').html());
@@ -56,17 +55,18 @@ $(document).ready(function () {
         })
         .on('click', '.item', function() {
 
-
-
             tilt.tilt.destroy.call(tilt);
 
-            if ($(document).width() <= 1023)
-                $('.'+$(this).attr('data-popup')).addClass('active').show();
-                $('body,html').animate({scrollTop: $('.'+$(this).attr('data-popup')).offset().top - 120 + 'px'}, 500)
+            if ($(document).width() <= 1023) {
+                $('.' + $(this).attr('data-popup')).addClass('active').show();
+                $('body,html').animate({scrollTop: $('.' + $(this).attr('data-popup')).offset().top - 120 + 'px'}, 500)
+            }
 
             if ($(document).width() > 1023) {
                 $('.' + $(this).attr('data-popup')).addClass('active');
                 $('.list .item').eq(0).html($(this).html());
+
+                $('.list .item').eq(0).addClass('zoomy');
             }
         });
 
