@@ -55,9 +55,14 @@ $(document).ready(function () {
 
         })
         .on('click', '.item', function() {
+
+
+
             tilt.tilt.destroy.call(tilt);
+
             if ($(document).width() <= 1023)
                 $('.'+$(this).attr('data-popup')).addClass('active').show();
+                $('body,html').animate({scrollTop: $('.'+$(this).attr('data-popup')).offset().top - 120 + 'px'}, 500)
 
             if ($(document).width() > 1023) {
                 $('.' + $(this).attr('data-popup')).addClass('active');
@@ -75,12 +80,12 @@ $(document).ready(function () {
 
    $('form').submit(function() {
        $('form > *').hide();
-
        $.ajax({
            url: '/ajax.php',
            data: $(this).serialize(),
            type: 'post',
            success: function(data) {
+               ym(69837316, 'reachGoal', 'lead');
                $('.success').show();
            }
        })

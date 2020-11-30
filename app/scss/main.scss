@@ -351,7 +351,7 @@ html {
         padding: 80px;
       }
       @include respond(0, 1023px) {
-        padding: 52px;
+        padding: 45px;
         z-index: 2;
       }
       position: absolute;
@@ -393,11 +393,24 @@ html {
       .head {
         font-size: 20px;
         font-weight: 600;
+        @include respond(0, 960px) {
+          margin-bottom: 12px;
+        }
       }
       .price {
         font-family: 'Playfair', sans-serif;
         font-weight: bold;
-        font-size: 40px;
+
+        @include respond(960px) {
+          font-size: 40px;
+        }
+        @include respond(0, 960px) {
+          font-size: 25px;
+          svg {
+            width: 15px;
+            height: 15px;
+          }
+        }
       }
     }
     img {
@@ -1095,6 +1108,7 @@ section {
   bottom: 3px;
   background: #171717;
   z-index: -1;
+  top: -42px;
 }
 
 nav {
