@@ -4,6 +4,7 @@
   font-family: 'Angelface';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local(''),
   url('../fonts/angelface.woff') format('woff');
 }
@@ -12,8 +13,18 @@
   font-family: 'Playfair';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: local(''),
   url('../fonts/PlayfairDisplayBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Playfair';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('../fonts/PlayfairDisplayRegular.woff') format('woff');
 }
 
 .pl52 {
@@ -39,6 +50,7 @@
 
 .vacancy-item {
   font-family: 'Playfair', sans-serif;
+  font-weight: bold;
   font-size: 40px;
   color: $brown;
   letter-spacing: .66px;
@@ -99,7 +111,7 @@ html {
     margin-left: 52px;
   }
 
-  .button {
+  .link {
     margin-top: 36px;
   }
 }
@@ -238,29 +250,191 @@ html {
   display: flex;
   margin-top: 50px;
   position: relative;
-  justify-content: space-between;
-  .popup {
-    display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    .element {
-      max-width: 439px;
-    }
+
+  @include respond(1023px) {
+    justify-content: space-between;
+  }
+
+  @include respond(0, 1023px) {
+    flex-direction: column;
+    align-items: center;
   }
 
   .item {
     text-align: center;
     max-width: 439px;
     width: 100%;
+    position: relative;
+
+    span {
+      font-family: 'Playfair', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      text-transform: uppercase;
+      width: 10px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.06;
+      position: absolute;
+      height: fit-content;
+      left: 20px;
+      top: 0;
+      z-index: 10;
+      padding: 25px 0 30px 0;
+      background: #151517;
+      bottom: 0;
+      justify-content: center;
+      margin: auto 0;
+      align-items: center;
+      word-break: break-all;
+      i {
+        font-style: normal;
+        font-size: 37px;
+        margin: 10px 0 17px 0;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      top: 26px;
+      bottom: 26px;
+      border: 1px solid $brown;
+    }
     img {
       max-width: 100%;
-      display: inline-block;
+      display: block;
       pointer-events: none;
     }
   }
+
+
+  .popup {
+    box-shadow: 28.284px 28.284px 81px 9px rgba(11, 11, 12, 0.6);
+
+    @include respond(1023px) {
+      position: absolute;
+    }
+    @include respond(0, 1023px) {
+      position: relative;
+      margin-top: 35px;
+    }
+    right: 0;
+    top: 0;
+    padding: 26px;
+    z-index: 22;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 800ms ease, visibility 800ms ease;
+
+    @include respond(0, 1023px) {
+      display: none;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      @include respond(1023px) {
+        padding: 80px;
+      }
+      @include respond(0, 1023px) {
+        padding: 52px;
+        z-index: 2;
+      }
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      .content {
+        margin-top: auto;
+      }
+
+      .arrow {
+        position: absolute;
+        right: 81px;
+        bottom: 79px;
+        @include respond(0, 1023px) {
+          display: none;
+        }
+        span:before {
+          position: absolute;
+          width: 13px;
+          height: 13px;
+          border: 1px solid #fff;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+          content: '';
+          display: block;
+          top: 9px;
+          margin-left: -6px;
+        }
+        svg {
+          display: block;
+          fill: $white;
+        }
+      }
+
+      .head {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .price {
+        font-family: 'Playfair', sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+      }
+    }
+    img {
+      border: 1px solid $brown;
+
+      display: block;
+      max-width: 100%;
+      @include respond(1023px) {
+        height: fill-available;
+      }
+      @include respond(0, 1023px) {
+        z-index: 1;
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      background: #151517;
+      transform: rotate(45deg);
+
+      @include respond(1023px) {
+        left: -15px;
+        margin: auto 0;
+        top: 0;
+      }
+      @include respond(0, 1023px) {
+        left: 0;
+        margin: 0 auto;
+        right: 0;
+        top: -15px;
+      }
+
+    }
+    background: #151517;
+  }
+
 }
 
 ul {
@@ -367,6 +541,7 @@ ul.contacts {
     }
     font-size: 40px;
     font-family: 'Playfair', sans-serif;
+    font-weight: bold;
     a {
       font-weight: 300;
       text-decoration: none;
@@ -601,7 +776,7 @@ form {
     color: #c5a26c;
     font-size: 56px;
   }
-  .button {
+  .link {
     margin-top: 65px;
   }
   @include respond(1225px) {
@@ -642,6 +817,7 @@ form {
       position: absolute;
       font-size: 16px;
       top: 17px;
+      left: 0;
       text-transform: uppercase;
       transition: top 170ms linear, font-size 170ms linear;
       color: $white;
@@ -747,13 +923,17 @@ section {
 
   &.services {
     min-height: 904px;
-    background: url('../images/stars_1.png') no-repeat left top;
+    background: url('../images/stars_1.png') repeat left top;
+
+    @include respond(0, 960px) {
+      padding-top: 60px;
+    }
   }
 
   &.vacancy {
     min-height: 840px;
     padding-top: 100px;
-    background: url('../images/stars_1.png') no-repeat left top;
+    background: url('../images/stars_1.png') repeat left top;
   }
 
   &.money {
@@ -767,21 +947,22 @@ section {
 
     min-height: 860px;
     padding-top: 50px;
-    background: url('../images/stars_1.png') no-repeat left top;
+    background: url('../images/stars_1.png') repeat left top;
   }
 
   &.feedback {
     padding-top: 15px;
 
     @include respond(1367px) {
-      padding-bottom: 200px;
+      padding-bottom: 10px;
     }
 
     @include respond(0, 1367px) {
       padding-bottom: 50px;
+      padding-top: 60px;
     }
 
-    background: url('../images/about.png') no-repeat left top;
+    background: url('../images/about.png') repeat left top;
 
     @include respond(0, 700px) {
       padding-bottom: 55px;
@@ -817,10 +998,8 @@ section {
   &.about {
     background: url('../images/about.png') no-repeat left top;
     @include respond(1367px) {
-      min-height: 806px;
     }
     @include respond(0, 1367px) {
-      min-height: 670px;
     }
 
 
@@ -839,13 +1018,13 @@ section {
       width: 100%;
 
       @include respond(0, 1073px) {
-        margin-bottom: 30px;
+        margin-bottom: 100px;
       }
       @include respond(1073px) {
         margin-left: auto;
       }
 
-      .button {
+      .link {
         margin-top: 35px;
       }
 
@@ -917,7 +1096,6 @@ nav {
 
   svg {
     display: block;
-    fill: $brown;
   }
 
   &:not(.active) {
@@ -926,6 +1104,9 @@ nav {
     }
   }
   .active {
+    svg {
+      fill: $brown;
+    }
     span {
       opacity: 1;
     }
@@ -943,6 +1124,17 @@ nav {
     font-size: 13px;
     display: inline-flex;
     margin: 20px 0;
+
+    svg {
+      fill: #e8e8e8;
+      transition: fill 200ms ease;
+    }
+
+    &:hover {
+      svg {
+        fill: $brown;
+      }
+    }
 
     .moon-icon {
       position: relative;
@@ -1018,6 +1210,7 @@ nav {
 
 #app {
   position: relative;
+  overflow-x: hidden;
   &:before {
     content: '';
     position: absolute;
@@ -1032,12 +1225,97 @@ nav {
   }
 }
 
+.buttonsvg:hover .buttonsvg-path {
+  stroke-dashoffset: 0;
+}
+
+.buttonsvg {
+  max-width: 293px;
+  height: 64px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+}
+
+button.link {
+  max-width: 282px !important;
+  height: 63px !important;
+}
+.link {
+  background: transparent !important;
+  outline: 0;
+  cursor: pointer;
+  border: 1px solid transparentize($white, .65);
+  span {
+    margin-left: 42px;
+    display: inline-flex;
+    align-items: center;
+    &:before {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border: 1px solid $white;
+      transform: rotate(45deg);
+      content: '';
+      display: block;
+      top: 23px;
+      margin-left: -6px;
+    }
+  }
+  svg {
+    fill: $white;
+  }
+  display: inline-flex;
+  position: relative;
+  max-width: 280px;
+  height: 61px;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.button-row svg {
+  stroke-dasharray: 0;
+}
+
+.buttonsvg {
+  max-width: 282px;
+  height: 63px;
+}
+
+.button-text {
+  color: $white;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+}
+
+.buttonsvg-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: 0.25s ease;
+  fill: none;
+  stroke: $brown;
+  stroke-miterlimit: 10;
+  stroke-width: 1px;
+}
+
 .footer-container {
   @include respond(800px) {
     padding-bottom: 20px;
-    padding-top: 30px;
+    padding-top: 110px;
   }
   @include respond(0, 800px) {
-    padding-bottom: 46px
+    padding-top: 41px;
   }
 }
